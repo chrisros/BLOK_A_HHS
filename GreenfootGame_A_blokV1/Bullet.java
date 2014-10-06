@@ -11,26 +11,22 @@ public class Bullet extends Actor
 
     
     private void wallCollide(){
-        if(isTouching(Wall.class)){
-        getWorld().removeObject(this);
+        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)||isAtEdge()){
+            getWorld().removeObject(this);
+        } else if (isTouching(DestructableWall.class)){
+           removeTouching(DestructableWall.class);
+           getWorld().removeObject(this);
         }
     }
     
-        private void outOfBounds(){
-            if(isAtEdge()){
-            getWorld().removeObject(this);
-            }
-        }
+
     
     public void act() 
     {
-       removeTouching(DestructableWall.class);     
-       move(30);
-       outOfBounds();
-       wallCollide();
+        wallCollide();
+       move(30);    
     }    
-    // test 1
-    // test 2j
+
    
     }
 

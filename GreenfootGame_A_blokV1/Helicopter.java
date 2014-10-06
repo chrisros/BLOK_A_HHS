@@ -8,10 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Helicopter extends Actor
 {
+    private int reloadDelay;                        //tijd sinds laatse schot
+    private static final int reloadTime = 20;        //minimum tijd tussen schoten
+    
+    //private GreenfootImage helicopter = new GreenfootImage("helicopter.png");
+    
+    //helicopter klaarmaken
+    public Helicopter(){
+        reloadDelay = reloadTime+1;
+    }
+    
+    //Controle of er niet tegen een muur aan word gebotst
     private void checkCollision()
     {
         Actor a = getOneIntersectingObject(Wall.class);
-        if (a != null)
+        if (a != null||isAtEdge() )
         {
             World world = getWorld();
             world.addObject(new Explosion(), getX(), getY());
@@ -28,9 +39,10 @@ public class Helicopter extends Actor
     }
     
     private void shoot(){
-        if(Greenfoot.isKeyDown("space")){
+        if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime){
             World world = getWorld();
             world.addObject(new Bullet(), getX(), getY());
+            reloadDelay = 0;
         }
     }
     
@@ -39,6 +51,8 @@ public class Helicopter extends Actor
         movement();
         checkCollision();
         shoot();
+        reloadDelay++;
+        
     }
     
     
