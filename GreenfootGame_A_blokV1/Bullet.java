@@ -29,7 +29,8 @@ public class Bullet extends Actor
        outOfBounds();
        wallCollide();
     }    
-    
+    // test 1
+    // test 2j
    
     }
 
