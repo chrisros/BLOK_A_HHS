@@ -25,6 +25,17 @@ public class Sky extends World
         
     }
     
+    public void act()
+    {
+       counter++;
+       if (counter == 150) {
+           IndestructableWall muurtje = new IndestructableWall();
+           addObject(muurtje, getWidth(), getHeight()/2);    
+           counter = 0;
+        }
+    }
+    
+    
     /*    public static gameOver() 
     {
         

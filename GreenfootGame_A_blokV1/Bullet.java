@@ -26,7 +26,12 @@ public class Bullet extends Actor
         wallCollide();
        move(30);    
     }    
+<<<<<<< HEAD
 
+=======
+    // test 1
+    // test 2
+>>>>>>> origin/master
    
     }
 
