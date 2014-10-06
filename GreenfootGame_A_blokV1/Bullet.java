@@ -8,10 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-    /**
-     * Act - do whatever the Bullet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
+    
     public void act() 
     {
         if (Greenfoot.isKeyDown("space")){
@@ -20,22 +18,6 @@ public class Bullet extends Actor
         move(30);
     }    
     
-    private void fire()
-    {
-        
+   
     }
-    
-    // Deze code komt uit het programma Asteroids - misschien handig om te gebruiken
-    /**
-     *     private void fire() 
-    {
-        if (reloadDelayCount >= gunReloadTime) 
-        {
-            Bullet bullet = new Bullet (getMovement().copy(), getRotation());
-            getWorld().addObject (bullet, getX(), getY());
-            bullet.move ();
-            reloadDelayCount = 0;
-        }
-    }
-     */
-}
+

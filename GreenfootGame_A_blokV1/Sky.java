@@ -23,7 +23,7 @@ public class Sky extends World
         addObject( new IndestructableWall(), 1600, 000);
         addObject( new IndestructableWall(), 1600, 000);
         
-        addObject( new MovingWall(), 500, 500);
+        addObject( new MovingWall(), 600, 500);
 
         
     }
