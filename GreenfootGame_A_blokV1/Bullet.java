@@ -30,7 +30,7 @@ public class Bullet extends Actor
        wallCollide();
     }    
     // test 1
-    // test 2j
+    // test 2
    
     }
 
