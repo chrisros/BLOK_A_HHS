@@ -9,13 +9,35 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
+    private int animationCount;                     //loop door de animatie
+    private String helicopterImage = "helicopter0.png";                 
     private static final int reloadTime = 20;        //minimum tijd tussen schoten
     
-    //private GreenfootImage helicopter = new GreenfootImage("helicopter.png");
-    
+    private GreenfootImage helicopter1 = new GreenfootImage("helicopter0.png");
+    private GreenfootImage helicopter2 = new GreenfootImage("helicopter1.png");
+    private GreenfootImage helicopter3 = new GreenfootImage("helicopter2.png");
+    private GreenfootImage helicopter4 = new GreenfootImage("helicopter3.png");
     //helicopter klaarmaken
     public Helicopter(){
         reloadDelay = reloadTime+1;
+        animationCount = 1;
+    }
+    
+    //animeren van helicopter
+    private void heliAnimationCount(){
+        if (animationCount<4){
+            helicopterImage="helicopter"+animationCount+".png";
+            animationCount++;
+            
+        } else {
+            animationCount=0;
+            helicopterImage="helicopter"+animationCount+".png";
+        }      
+   }
+   
+   //animatie van helicopterwieken
+   private void heliAnimation(){
+       setImage(helicopterImage);
     }
     
     //Controle of er niet tegen een muur aan word gebotst
@@ -31,6 +53,7 @@ public class Helicopter extends Actor
         }
     }
     
+    //op en neer bewegen
     private void movement(){
              if(Greenfoot.isKeyDown("up")){
         setLocation(getX(), getY()-8);  
@@ -38,10 +61,11 @@ public class Helicopter extends Actor
         setLocation(getX(), getY()+8);   }
     }
     
+    //schieten van kogel
     private void shoot(){
         if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime){
             World world = getWorld();
-            world.addObject(new Bullet(), getX(), getY());
+            world.addObject(new Bullet(), (getX()+30), (getY()+30));
             reloadDelay = 0;
         }
     }
@@ -52,7 +76,9 @@ public class Helicopter extends Actor
         checkCollision();
         shoot();
         reloadDelay++;
-        
+        heliAnimation();
+        heliAnimationCount();
+
     }
     
     

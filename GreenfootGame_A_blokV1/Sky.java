@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sky extends World
 {
-    
+    private int counter;
    
     public Sky()
     {         
@@ -28,7 +28,7 @@ public class Sky extends World
     public void act()
     {
        counter++;
-       if (counter == 150) {
+       if (counter == 250) {
            IndestructableWall muurtje = new IndestructableWall();
            addObject(muurtje, getWidth(), getHeight()/2);    
            counter = 0;

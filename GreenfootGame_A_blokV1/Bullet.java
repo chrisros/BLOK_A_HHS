@@ -24,14 +24,9 @@ public class Bullet extends Actor
     public void act() 
     {
         wallCollide();
-       move(30);    
+       move(20);    
     }    
-<<<<<<< HEAD
 
-=======
-    // test 1
-    // test 2
->>>>>>> origin/master
    
     }
 
