@@ -10,6 +10,6 @@ public class Explosion extends Actor
 {
     public void act() 
     {
-
+        
     }    
 }
