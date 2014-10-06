@@ -24,7 +24,8 @@ public class Bullet extends Actor
             
        move(30);
     }    
-    
+    // test 1
+    // test 2j
    
     }
 
