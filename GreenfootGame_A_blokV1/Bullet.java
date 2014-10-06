@@ -8,21 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-        private void checkWallHit()
-    {
-        DestructableWall wall = (DestructableWall) getOneIntersectingObject(DestructableWall.class);
-        if (wall != null){
-            getWorld().removeObject(this);
-            getWorld().removeObject(wall);
-        //} else if (getOneIntersectingObject(Wall.class)){
-        //    getWorld().removeObject(this);
+
+    
+    private void wallCollide(){
+        if(isTouching(Wall.class)){
+        getWorld().removeObject(this);
         }
     }
     
+        private void outOfBounds(){
+            if(isAtEdge()){
+            getWorld().removeObject(this);
+            }
+        }
+    
     public void act() 
     {
-            
+       removeTouching(DestructableWall.class);     
        move(30);
+       outOfBounds();
+       wallCollide();
     }    
     
    
