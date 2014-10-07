@@ -10,36 +10,27 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    private static int reloadTime;            //minimum tijd tussen schoten
+    private static int reloadTime;                  //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
-    
-    private GreenfootImage helicopter1 = new GreenfootImage("helicopter0.png");
-    private GreenfootImage helicopter2 = new GreenfootImage("helicopter1.png");
-    private GreenfootImage helicopter3 = new GreenfootImage("helicopter2.png");
-    private GreenfootImage helicopter4 = new GreenfootImage("helicopter3.png");
+   
     //helicopter klaarmaken
     public Helicopter(){
         reloadDelay = reloadTime+1;
-        animationCount = 1;
+        animationCount = 0;
         reloadTime = 30;
     }
     
     //animeren van helicopter
     private void heliAnimationCount(){
-        if (animationCount<4){
-            helicopterImage="helicopter"+animationCount+".png";
+        if (animationCount<3){
             animationCount++;
-            
+            helicopterImage="helicopter"+animationCount+".png";  
         } else {
             animationCount=0;
-            helicopterImage="helicopter"+animationCount+".png";
-        }      
+            helicopterImage="helicopter"+animationCount+".png";  
+        } 
+        setImage(helicopterImage);
    }
-   
-   //animatie van helicopterwieken
-   private void heliAnimation(){
-       setImage(helicopterImage);
-    }
     
     //Controle of er niet tegen een muur aan word gebotst
     private void checkCollision()
@@ -49,7 +40,7 @@ public class Helicopter extends Actor
         {
             World world = getWorld();
             world.addObject(new Explosion(), getX(), getY());
-            world.removeObject(this); // remove helicpter from world
+            world.removeObject(this); // remove helicopter from world
             //Sky.gameOver(); //call gameover 
         }
     }
@@ -77,7 +68,6 @@ public class Helicopter extends Actor
         checkCollision();
         shoot();
         reloadDelay++;
-        heliAnimation();
         heliAnimationCount();
 
     }
