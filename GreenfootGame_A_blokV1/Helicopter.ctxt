@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ checkCollision()
+comment0.target=Helicopter()
 comment1.params=
-comment1.target=void\ movement()
+comment1.target=void\ heliAnimationCount()
 comment2.params=
-comment2.target=void\ shoot()
+comment2.target=void\ heliAnimation()
 comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment3.target=void\ checkCollision()
+comment4.params=
+comment4.target=void\ movement()
+comment5.params=
+comment5.target=void\ shoot()
+comment6.params=
+comment6.target=void\ act()
+numComments=7

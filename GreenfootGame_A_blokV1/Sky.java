@@ -8,15 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sky extends World
 {
-
-    /**
-     * Constructor for objects of class Sky.
-     * 
-     */
+    private int counter;
+   
     public Sky()
-    {    
-        // Create a new world with 1200x600 cells with a cell size of 1x1 pixels.
-        super(1200, 600, 1); 
+    {         
+       super(1200, 600, 1); 
+       //Greenfoot.playSound("darude.wav");
         addObject( new Helicopter(), 400, 300 );
         addObject( new IndestructableWall(), 1200, 600);
         
@@ -31,7 +28,7 @@ public class Sky extends World
     public void act()
     {
        counter++;
-       if (counter == 150) {
+       if (counter == 250) {
            IndestructableWall muurtje = new IndestructableWall();
            addObject(muurtje, getWidth(), getHeight()/2);    
            counter = 0;
