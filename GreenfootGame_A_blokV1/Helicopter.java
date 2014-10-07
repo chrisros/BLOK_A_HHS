@@ -10,8 +10,8 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    private String helicopterImage = "helicopter0.png";                 
-    private static final int reloadTime = 20;        //minimum tijd tussen schoten
+    private static int reloadTime;            //minimum tijd tussen schoten
+    private String helicopterImage = "helicopter0.png";                
     
     private GreenfootImage helicopter1 = new GreenfootImage("helicopter0.png");
     private GreenfootImage helicopter2 = new GreenfootImage("helicopter1.png");
@@ -21,6 +21,7 @@ public class Helicopter extends Actor
     public Helicopter(){
         reloadDelay = reloadTime+1;
         animationCount = 1;
+        reloadTime = 30;
     }
     
     //animeren van helicopter
