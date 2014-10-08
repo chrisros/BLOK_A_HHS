@@ -23,7 +23,7 @@ public class Bullet extends Actor
     
     public void act() 
     {
-        wallCollide();
+       wallCollide();
        move(20);    
     }    
 

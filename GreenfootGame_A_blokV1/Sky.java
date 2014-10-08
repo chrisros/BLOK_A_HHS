@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sky extends World
 {
     private int counter;
+    int SPACE_BETWEEN_MUREN = 200;
+    //int hoogteRandom = Greenfoot.getRandomNumber(800) +300;
     
    
     public Sky()
@@ -17,14 +19,8 @@ public class Sky extends World
        //Greenfoot.playSound("darude.wav");
         addObject( new Helicopter(), 400, 300 );
        
-        addObject( new MovingWall(), 600, 500);
+       
 
-        
-    }
-    
-    public static void getRandomNumber() {
-        int limit = 500;
-        int min = 300;
         
     }
     
@@ -32,11 +28,14 @@ public class Sky extends World
     {
        counter++;
        if (counter == 250) {
-           IndestructableWall muurtje = new IndestructableWall();
+           DownIndestructableWall downMuur = new DownIndestructableWall();           
+           GreenfootImage downImage = downMuur.getImage();
+           addObject(downMuur, getWidth(), getHeight()+ downImage.getHeight()-(Greenfoot.getRandomNumber(400) +300));    
            
-           GreenfootImage image = muurtje.getImage();
+           UpIndestructableWall upMuur = new UpIndestructableWall();
+           addObject(upMuur, getWidth(), downMuur.getY() - downImage.getHeight() -SPACE_BETWEEN_MUREN );
            
-           addObject(muurtje, getWidth(), getHeight()+ image.getHeight() -300);    
+           
            counter = 0;
         }
     }
