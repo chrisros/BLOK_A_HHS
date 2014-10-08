@@ -1,4 +1,7 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ act()
-numComments=1
+comment0.target=void\ explosionAnimation()
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ \ \ \ private\ void\ explosion(){\r\n\ \ \ \ if\ (count<10){\r\n\ \ \ \ \ \ \ \ count++;\r\n\ \ \ \ }\ else\r\n\ \ \ \ \ \ \ \ getWorld().removeObject(this);;\r\n\ \ \ \ }\r\n
+numComments=2

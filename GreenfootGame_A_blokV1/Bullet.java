@@ -9,21 +9,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
 
-    
+    //exploderen en verdrwijnenn als een muur geraakt word
     private void wallCollide(){
-        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)||isAtEdge()){
-            getWorld().removeObject(this);
+        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
+            explode();
         } else if (isTouching(DestructableWall.class)){
            removeTouching(DestructableWall.class);
-           getWorld().removeObject(this);
+           explode();
+        } else if(isAtEdge()){
+            getWorld().removeObject(this);
         }
     }
-    
+   
+    private void explode(){
+        World world = getWorld();
+        world.addObject(new Explosion(), getX(), getY());
+        world.removeObject(this); // remove rocket from world 
+    }
 
     
     public void act() 
     {
-        wallCollide();
+       wallCollide();
        move(20);    
     }    
 

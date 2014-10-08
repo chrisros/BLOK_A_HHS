@@ -10,13 +10,12 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    private static int reloadTime;                  //minimum tijd tussen schoten
+    private static int reloadTime;            //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
-   
     //helicopter klaarmaken
     public Helicopter(){
         reloadDelay = reloadTime+1;
-        animationCount = 0;
+        animationCount = 1;
         reloadTime = 30;
     }
     
@@ -24,13 +23,14 @@ public class Helicopter extends Actor
     private void heliAnimationCount(){
         if (animationCount<3){
             animationCount++;
-            helicopterImage="helicopter"+animationCount+".png";  
+            
         } else {
-            animationCount=0;
-            helicopterImage="helicopter"+animationCount+".png";  
-        } 
+            animationCount=0;    
+        }  
+        helicopterImage="helicopter"+animationCount+".png";
         setImage(helicopterImage);
    }
+  
     
     //Controle of er niet tegen een muur aan word gebotst
     private void checkCollision()
@@ -41,7 +41,7 @@ public class Helicopter extends Actor
             World world = getWorld();
             world.addObject(new Explosion(), getX(), getY());
             world.removeObject(this); // remove helicopter from world
-            //Sky.gameOver(); //call gameover 
+            gameOver(); //call gameover 
         }
     }
     
@@ -57,9 +57,14 @@ public class Helicopter extends Actor
     private void shoot(){
         if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime){
             World world = getWorld();
-            world.addObject(new Bullet(), (getX()+30), (getY()+30));
+            world.addObject(new Bullet(), (getX()+25), (getY()+15));
             reloadDelay = 0;
         }
+    }
+    
+    private void gameOver(){
+        Delay(50); 
+        Greenfoot.stop();
     }
     
     public void act() 
