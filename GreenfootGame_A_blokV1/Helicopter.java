@@ -12,11 +12,6 @@ public class Helicopter extends Actor
     private int animationCount;                     //loop door de animatie
     private static int reloadTime;            //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
-    
-    private GreenfootImage helicopter1 = new GreenfootImage("helicopter0.png");
-    private GreenfootImage helicopter2 = new GreenfootImage("helicopter1.png");
-    private GreenfootImage helicopter3 = new GreenfootImage("helicopter2.png");
-    private GreenfootImage helicopter4 = new GreenfootImage("helicopter3.png");
     //helicopter klaarmaken
     public Helicopter(){
         reloadDelay = reloadTime+1;
@@ -26,20 +21,16 @@ public class Helicopter extends Actor
     
     //animeren van helicopter
     private void heliAnimationCount(){
-        if (animationCount<4){
-            helicopterImage="helicopter"+animationCount+".png";
+        if (animationCount<3){
             animationCount++;
             
         } else {
-            animationCount=0;
-            helicopterImage="helicopter"+animationCount+".png";
-        }      
+            animationCount=0;    
+        }  
+        helicopterImage="helicopter"+animationCount+".png";
+        setImage(helicopterImage);
    }
-   
-   //animatie van helicopterwieken
-   private void heliAnimation(){
-       setImage(helicopterImage);
-    }
+  
     
     //Controle of er niet tegen een muur aan word gebotst
     private void checkCollision()
@@ -49,8 +40,8 @@ public class Helicopter extends Actor
         {
             World world = getWorld();
             world.addObject(new Explosion(), getX(), getY());
-            world.removeObject(this); // remove helicpter from world
-            //Sky.gameOver(); //call gameover 
+            world.removeObject(this); // remove helicopter from world
+            gameOver(); //call gameover 
         }
     }
     
@@ -66,9 +57,14 @@ public class Helicopter extends Actor
     private void shoot(){
         if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime){
             World world = getWorld();
-            world.addObject(new Bullet(), (getX()+30), (getY()+30));
+            world.addObject(new Bullet(), (getX()+25), (getY()+15));
             reloadDelay = 0;
         }
+    }
+    
+    private void gameOver(){
+        Delay(50); 
+        Greenfoot.stop();
     }
     
     public void act() 
@@ -77,7 +73,6 @@ public class Helicopter extends Actor
         checkCollision();
         shoot();
         reloadDelay++;
-        heliAnimation();
         heliAnimationCount();
 
     }
