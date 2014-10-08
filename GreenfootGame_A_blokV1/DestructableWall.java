@@ -12,5 +12,7 @@ public class DestructableWall extends Wall
     public void act() 
     {
         // Add your action code here.
+        
+        move(-2);
     }    
 }

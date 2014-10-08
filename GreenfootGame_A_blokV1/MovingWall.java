@@ -14,24 +14,23 @@ public class MovingWall extends Wall
      */
     public void act() 
     {
-       {
-       //if(Greenfoot.isKeyDown("up")){
-       // setLocation(getX(), getY()-8);  
-       // } else if (Greenfoot.isKeyDown("down")){
-       // setLocation(getX(), getY()+8); 
-       move(-2);
-       int i = 0;
-       if ( i <= 3)
-       {
-           i++;
-           move(4);
-       } else { 
-           move(-4);
-           i = 0;
-        }
+       checkRand();      
+       
+        
+    }
+    
+    
+    private void checkRand(){
+        if (MovingWall.this != null || isAtEdge())
+        {
+            World world = getWorld();
+            setLocation(getX(), getY()-2);
+            
+        } else { setLocation(getX(), getY()+2); }
+        
     }
     
     
     } 
-    }    
+        
 

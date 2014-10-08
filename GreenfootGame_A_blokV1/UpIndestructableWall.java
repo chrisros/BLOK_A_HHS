@@ -14,10 +14,9 @@ public class UpIndestructableWall extends IndestructableWall
      */
     public void act() 
     {
-<<<<<<< HEAD
+
         // Add your action code here.
-=======
->>>>>>> origin/master
+
         move(-2);
     }    
 }

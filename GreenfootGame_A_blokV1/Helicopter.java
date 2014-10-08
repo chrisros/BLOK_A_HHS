@@ -63,7 +63,7 @@ public class Helicopter extends Actor
     }
     
     private void gameOver(){
-        Delay(50); 
+        //Delay(50); 
         Greenfoot.stop();
     }
     
