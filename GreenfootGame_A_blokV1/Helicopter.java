@@ -10,6 +10,7 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
+    public int gameOverDelay = 0;
     private static int reloadTime;            //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
     //helicopter klaarmaken
@@ -59,13 +60,26 @@ public class Helicopter extends Actor
             World world = getWorld();
             world.addObject(new Bullet(), (getX()+25), (getY()+15));
             reloadDelay = 0;
+            Greenfoot.playSound("launch.wav");
         }
     }
     
-    private void gameOver(){
-        //Delay(50); 
-        Greenfoot.stop();
+    private void gameOver(){       
+        Greenfoot.playSound("heliExplosion.wav");
+        
+        if(gameOverDelay<30){
+            gameOverDelay++;
+
+        }        
+
+        }
+    private void stopCheck() {
+                if (gameOverDelay>20)
+        {
+            Greenfoot.stop();
+        }
     }
+    
     
     public void act() 
     {
@@ -74,7 +88,7 @@ public class Helicopter extends Actor
         shoot();
         reloadDelay++;
         heliAnimationCount();
-
+        stopCheck();
     }
     
     
