@@ -41,6 +41,7 @@ public class Helicopter extends Actor
             World world = getWorld();
             world.addObject(new Explosion(), getX(), getY());
             world.removeObject(this); // remove helicopter from world
+            Greenfoot.playSound("heliExplosion.wav");
             gameOver(); //call gameover 
         }
     }
@@ -59,11 +60,12 @@ public class Helicopter extends Actor
             World world = getWorld();
             world.addObject(new Bullet(), (getX()+25), (getY()+15));
             reloadDelay = 0;
+            Greenfoot.playSound("launch.wav");
         }
     }
     
     private void gameOver(){
-        //Delay(50); 
+        //delay(50); 
         Greenfoot.stop();
     }
     

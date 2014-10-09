@@ -9,14 +9,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
 
-    //exploderen en verdrwijnenn als een muur geraakt word
+    //exploderen en verdrwijnen als een muur geraakt word
     private void wallCollide(){
-        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
+        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class))
+        {
             explode();
-        } else if (isTouching(DestructableWall.class)){
-           removeTouching(DestructableWall.class);
-           explode();
-        } else if(isAtEdge()){
+        } else if (isTouching(DestructableWall.class))
+        {
+            removeTouching(DestructableWall.class);
+            explode();
+        } else if(isAtEdge())
+        {
             getWorld().removeObject(this);
         }
     }
@@ -25,13 +28,14 @@ public class Bullet extends Actor
         World world = getWorld();
         world.addObject(new Explosion(), getX(), getY());
         world.removeObject(this); // remove rocket from world 
+        Greenfoot.playSound("explosion.wav");
     }
 
     
     public void act() 
     {
        wallCollide();
-       move(20);    
+       move(25);    
     }    
 
    
