@@ -2,9 +2,9 @@
 comment0.params=
 comment0.target=Sky()
 comment1.params=
-comment1.target=void\ getRandomNumber()
+comment1.target=void\ act()
 comment2.params=
-comment2.target=void\ spawnWalls()
+comment2.target=void\ spawnIndestructableWalls()
 comment3.params=
-comment3.target=void\ act()
+comment3.target=void\ spawnDestructableWalls()
 numComments=4
