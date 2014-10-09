@@ -11,6 +11,7 @@ public class Sky extends World
     private int counterIndestructableWalls;
     private int counterDestructableWalls;
     int SPACE_BETWEEN_MUREN = 200;
+    
        
     
   
@@ -34,6 +35,7 @@ public class Sky extends World
 
     {
        counterIndestructableWalls++;
+       System.out.println(counterIndestructableWalls);
        if (counterIndestructableWalls == 250) {
           
            // Down Wall
