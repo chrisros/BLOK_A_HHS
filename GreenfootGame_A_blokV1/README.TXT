@@ -10,3 +10,10 @@ VERSION or DATE:v.1
 HOW TO START THIS PROJECT:
 AUTHORS: Chris Ros & Aaik Oosters
 USER INSTRUCTIONS:
+
+
+---MovingWal---
+int beweging = GO-UP
+setLocation(getX(), getY()+ beweging);
+als positie == 200 dan beweging = GO-DOWN
+als positie == 400 dan beweging = GO-UP

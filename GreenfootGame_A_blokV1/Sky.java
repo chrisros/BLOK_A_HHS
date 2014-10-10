@@ -28,7 +28,7 @@ public class Sky extends World
       
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 1200, 300 );
-        addObject( new MovingWall(), 100, 100);
+        addObject( new MovingWall(), 1200, 600);
         setPaintOrder(Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,ScoreBoard.class,BackgroundScroller.class);
                
     }
