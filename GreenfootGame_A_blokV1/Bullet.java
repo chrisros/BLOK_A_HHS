@@ -24,7 +24,8 @@ public class Bullet extends Actor
     private void explode(){
         World world = getWorld();
         world.addObject(new Explosion(), getX(), getY());
-        world.removeObject(this); // remove rocket from world 
+        world.removeObject(this); // remove rocket from world
+        Greenfoot.playSound("explosion.wav");
     }
 
     

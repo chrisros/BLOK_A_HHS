@@ -8,19 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sky extends World
 {
+    boolean isPlaying = false;
     private int counterIndestructableWalls;
     private int counterDestructableWalls;
     int SPACE_BETWEEN_MUREN = 200;
        
-    
+    private void playMusic()
+    {
+        if(!isPlaying)
+        {
+            Greenfoot.playSound("darude.wav");
+            isPlaying = true;
+        }
+    }
   
     public Sky()
     {         
        super(1200, 600, 1, false); 
-       //Greenfoot.playSound("darude.wav");
+      
         addObject( new Helicopter(), 400, 300 );
+        addObject( new BackgroundScroller(), 1200, 300 );
         addObject( new MovingWall(), 100, 100);
-        setPaintOrder(IndestructableWall.class, DestructableWall.class);
+        setPaintOrder(Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,ScoreBoard.class,BackgroundScroller.class);
                
     }
    
@@ -28,6 +37,7 @@ public class Sky extends World
     {
         spawnIndestructableWalls();
         spawnDestructableWalls();
+        playMusic();
     }
     
     private void spawnIndestructableWalls()
