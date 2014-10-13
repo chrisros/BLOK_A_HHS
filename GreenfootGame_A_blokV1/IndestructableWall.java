@@ -18,7 +18,7 @@ public class IndestructableWall extends Wall
      */
     public void act() 
     {
-       move(-2);
+       move(-4);
         /* if(Greenfoot.isKeyDown("w")){
         /*    setLocation(getX(), getY()-8)
          * } else if (Greenfoot.isKeyDown("s")) {
