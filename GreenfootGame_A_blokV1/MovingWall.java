@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MovingWall extends Wall
 {
-    final int GO_UP = -2;
-    final int GO_DOWN = 2;
+    int GO_UP = -Greenfoot.getRandomNumber(3)-1;
+    int GO_DOWN = Greenfoot.getRandomNumber(3)+1;
     final int GO_DOWN_WAARDE = 100;
     final int GO_UP_WAARDE = 500;
     

@@ -9,9 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sky extends World
 {
     boolean isPlaying = false;
-    private int counterIndestructableWalls;
-    private int counterDestructableWalls;
+    int WallCounter;
+    int HeliCounter;
     int SPACE_BETWEEN_MUREN = 200;
+    int FIRST_WALL = 737;
+    int score = 0;
        
     private void playMusic()
     {
@@ -28,58 +30,66 @@ public class Sky extends World
       
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 1200, 300 );
-        addObject( new MovingWall(), 1200, 600);
+        //addObject( new MovingWall(), 1200, 600);
         setPaintOrder(Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,ScoreBoard.class,BackgroundScroller.class);
                
     }
    
     public void act()
     {
-        spawnIndestructableWalls();
-        spawnDestructableWalls();
+        WallCounter++;
         playMusic();
+        
+        //System.out.println(counter);
+        
+        if (WallCounter % 250 == 0 && WallCounter % 1000 != 0 )
+        { 
+            spawnIndestructableWalls();
+        } 
+        if (WallCounter % 1000 == 0) {
+            
+            addObject( new MovingWall(), 1200, 600);
+        }
+        if (WallCounter % 750 == 0 && WallCounter % 1000 != 0)
+        {
+            spawnDestructableWalls();
+        }
+        
+        if (WallCounter >= FIRST_WALL)
+        {
+            if (HeliCounter % 250 == 0)
+            { 
+                score++;
+                System.out.println(score);
+            }
+            HeliCounter++;
+            
+        }
+        
     }
     
     private void spawnIndestructableWalls()
-
     {
-       counterIndestructableWalls++;
-       if (counterIndestructableWalls == 250) {
-          
-           // Down Wall
-           DownIndestructableWall downMuur = new DownIndestructableWall();           
-           GreenfootImage downImage = downMuur.getImage();
-           addObject(downMuur, getWidth(), getHeight()+ downImage.getHeight()-(Greenfoot.getRandomNumber(400) +300));    
+        // Down Wall
+        DownIndestructableWall downMuur = new DownIndestructableWall();           
+        GreenfootImage downImage = downMuur.getImage();
+        addObject(downMuur, getWidth(), getHeight()+ downImage.getHeight()-(Greenfoot.getRandomNumber(400) +300));    
+        
+        // Up Wall
+        UpIndestructableWall upMuur = new UpIndestructableWall();
+        addObject(upMuur, getWidth(), downMuur.getY() - downImage.getHeight() -SPACE_BETWEEN_MUREN );
            
-           // Up Wall
-           UpIndestructableWall upMuur = new UpIndestructableWall();
-           addObject(upMuur, getWidth(), downMuur.getY() - downImage.getHeight() -SPACE_BETWEEN_MUREN );
-                    
-           // Put counter to 0
-           counterIndestructableWalls = 0;
-           
-           
-           
-        }
     }
     
     private void spawnDestructableWalls()
     
     {
-       counterDestructableWalls++;
-       if (counterDestructableWalls == 750) {
-           DestructableWall destruct = new DestructableWall();
-           GreenfootImage destructImage = destruct.getImage();
+        DestructableWall destruct = new DestructableWall();
+        GreenfootImage destructImage = destruct.getImage();
            
-           addObject(destruct, getWidth(), getHeight()/2);
-           // Put counter to 0
-           counterDestructableWalls = 0;
-        }
+        addObject(destruct, getWidth(), getHeight()/2);
     }
-    
-    
-    
-    
+      
     
     /*    public static gameOver() 
     {
