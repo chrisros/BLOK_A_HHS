@@ -14,12 +14,13 @@ public class Sky extends World
     int SPACE_BETWEEN_MUREN = 200;
     int FIRST_WALL = 737;
     int score = 0;
+    ScoreBoard scoreBoard = null;
        
     private void playMusic()
     {
         if(!isPlaying)
         {
-            Greenfoot.playSound("darude.wav");
+            //Greenfoot.playSound("darude.wav");
             isPlaying = true;
         }
     }
@@ -30,8 +31,13 @@ public class Sky extends World
       
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 1200, 300 );
-        //addObject( new MovingWall(), 1200, 600);
-        setPaintOrder(Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,ScoreBoard.class,BackgroundScroller.class);
+        
+        scoreBoard = new ScoreBoard();
+        scoreBoard.setScore(0);
+        
+        addObject(scoreBoard, 100, 100);
+        
+        setPaintOrder(ScoreBoard.class, Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,BackgroundScroller.class);
                
     }
    
@@ -60,7 +66,7 @@ public class Sky extends World
             if (HeliCounter % 250 == 0)
             { 
                 score++;
-                System.out.println(score);
+                scoreBoard.setScore(score);
             }
             HeliCounter++;
             
