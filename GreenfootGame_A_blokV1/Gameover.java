@@ -8,14 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameOver extends Actor
 {
-    public void splashScreen()
-    {
-        
-    }
+
     
     public void act() 
     {
-        splashScreen();
-        Greenfoot.stop();
+        setImage("Gameover.png");
     }    
 }

@@ -30,14 +30,14 @@ public class Sky extends World
        super(1200, 600, 1, false); 
       
             addObject( new Helicopter(), 400, 300 );
-        addObject( new BackgroundScroller(), 1200, 300 );
+        addObject( new BackgroundScroller(), 10, 300 );
         
         scoreBoard = new ScoreBoard();
         scoreBoard.setScore(0);
         
         addObject(scoreBoard, 100, 100);
         
-        setPaintOrder(ScoreBoard.class, Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,BackgroundScroller.class);
+        setPaintOrder(GameOver.class, ScoreBoard.class, Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,BackgroundScroller.class);
                
     }
    
