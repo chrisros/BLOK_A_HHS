@@ -29,7 +29,7 @@ public class Sky extends World
     {         
        super(1200, 600, 1, false); 
       
-        addObject( new Helicopter(), 400, 300 );
+            addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 1200, 300 );
         
         scoreBoard = new ScoreBoard();
