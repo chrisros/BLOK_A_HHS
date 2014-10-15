@@ -52,6 +52,7 @@ public class Helicopter extends Actor
             if (a != null||isAtEdge())
             {
                 setImage("gone.png");//laat de helicopter verdwijnen
+                //greenfoot.GreenfootSound.stop("helisound.wav");
                 World world = getWorld();
                 world.addObject(new Explosion(), getX(), getY());
                 Greenfoot.playSound("heliExplosion.wav");
@@ -110,6 +111,7 @@ public class Helicopter extends Actor
     
     public void act() 
     {
+        //GreenfootSound.playLoop(playSound("helisound.mp3")); 
         gameOver();
         movement();
         checkCollision();

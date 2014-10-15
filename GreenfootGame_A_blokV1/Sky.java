@@ -9,15 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sky extends World
 {
     boolean isPlaying = false;
+    boolean start = false;
     int WallCounter;
     int HeliCounter;
     int SPACE_BETWEEN_MUREN = 200;
     int FIRST_WALL = 737;
-    
-    public int timerSpeed = 0;
-          
-    
-    ScoreBoard scoreBoard = new ScoreBoard();
+    int score = 0;
+    ScoreBoard scoreBoard = null;
        
     private void playMusic()
     {
@@ -31,6 +29,7 @@ public class Sky extends World
     public Sky()
     {         
        super(1200, 600, 1, false); 
+<<<<<<< HEAD
       
 
         addObject( new Helicopter(), 400, 300 );
@@ -56,40 +55,64 @@ public class Sky extends World
            Wall.speed++;
        }
    }
-   
-   public void act()
-    {
-        WallCounter++;
-        timerSpeed++;
-        addSpeed();
-        playMusic();
+=======
         
-        //System.out.println(counter);
+        addObject( new Start(), 600, 300);
+        addObject( new Helicopter(), 400, 300 );
+        addObject( new BackgroundScroller(), 10, 300 );
         
-        if (WallCounter % 250 == 0 && WallCounter % 1000 != 0 )
-        { 
-            spawnIndestructableWalls();
-        } 
-        if (WallCounter % 1000 == 0) {
-            
-            addObject( new MovingWall(), 1200, 600);
-        }
-        if (WallCounter % 750 == 0 && WallCounter % 1000 != 0)
-        {
-            spawnDestructableWalls();
-        }
+        scoreBoard = new ScoreBoard();
+        scoreBoard.setScore(0);
         
-        if (WallCounter >= FIRST_WALL)
-        {
-            if (HeliCounter % 250 == 0)
-            { 
-            scoreBoard.addScore();
+        addObject(scoreBoard, 100, 100);
+        
+        setPaintOrder
+        (
+        GameOver.class,
+        Start.class,
+        ScoreBoard.class, 
+        Explosion.class,
+        IndestructableWall.class, 
+        DestructableWall.class,
+        Helicopter.class,
+        Bullet.class,
+        MovingWall.class,
+        BackgroundScroller.class
+        );
                
-            }
-            HeliCounter++;
+    }
+>>>>>>> origin/master
+   
+    public void act()
+    {
+
+            WallCounter++;
+            playMusic();                
             
-        }
-        
+            if (WallCounter % 250 == 0 && WallCounter % 1000 != 0 )
+            { 
+                spawnIndestructableWalls();
+            } 
+            if (WallCounter % 1000 == 0) {
+                
+                addObject( new MovingWall(), 1200, 600);
+            }
+            if (WallCounter % 750 == 0 && WallCounter % 1000 != 0)
+            {
+                spawnDestructableWalls();
+            }
+            
+            if (WallCounter >= FIRST_WALL)
+            {
+                if (HeliCounter % 250 == 0)
+                { 
+                    score++;
+                    scoreBoard.setScore(score);
+                }
+                HeliCounter++;
+                
+            
+        }     
     }
     
     private void spawnIndestructableWalls()
@@ -115,9 +138,5 @@ public class Sky extends World
     }
       
     
-    /*    public static gameOver() 
-    {
-        
-    }
-    */
+    
 }

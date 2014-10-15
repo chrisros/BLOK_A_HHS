@@ -13,6 +13,6 @@ public class DestructableWall extends Wall
     {
         // Add your action code here.
         
-        move(-speed);
+        move(-2);
     }    
 }
