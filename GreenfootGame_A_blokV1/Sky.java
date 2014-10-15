@@ -29,33 +29,6 @@ public class Sky extends World
     public Sky()
     {         
        super(1200, 600, 1, false); 
-<<<<<<< HEAD
-      
-
-        addObject( new Helicopter(), 400, 300 );
-        addObject( new BackgroundScroller(), 10, 300 );
-        addObject ( scoreBoard, 100, 100);
-                
-               
-        setPaintOrder(GameOver.class, ScoreBoard.class, Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,BackgroundScroller.class);
-
-               
-    }
-    
-    public ScoreBoard getCounter()
-    
-    {
-        return scoreBoard;
-        
-    }
-   public void addSpeed()
-   {
-       if (timerSpeed % 2500 == 0)
-       {
-           Wall.speed++;
-       }
-   }
-=======
         
         addObject( new Start(), 600, 300);
         addObject( new Helicopter(), 400, 300 );
@@ -81,7 +54,6 @@ public class Sky extends World
         );
                
     }
->>>>>>> origin/master
    
     public void act()
     {

@@ -35,7 +35,7 @@ public class MovingWall extends Wall
        
        setLocation(getX(), getY()+ beweging);
        
-       move(-speed); 
+       move(-2); 
     }
      
        

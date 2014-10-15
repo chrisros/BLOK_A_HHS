@@ -8,27 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Wall extends Actor
 {
-    
-    public static int speed = 2;    
-    int timer = 0;
-    
-          
+    /**
+     * Act - do whatever the Wall wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act() 
     {
-        timer++;
-        System.out.println("hallo"); 
-        goFaster();
-        
-        if (timer % 250 == 0)
-        {
-            speed++;
-        }
-        move(speed);
-    }
-    
-       
-    public void goFaster()
-    {
-        
-    }
+        // Add your action code here.
+    }    
 }
