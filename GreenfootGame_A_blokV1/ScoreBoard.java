@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Write a description of class ScoreBoard here.
@@ -8,12 +10,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ScoreBoard extends Actor
 {
-    /**
-     * Act - do whatever the ScoreBoard wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    private int score = 0;
+    
+    public void act()
+    
     {
-        // Add your action code here.
-    }    
+        setImage(new GreenfootImage("Score: " + score, 50, Color.WHITE, null));
+    }
+    
+    public void addScore()
+    
+    {
+        score++;
+    }
 }

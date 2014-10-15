@@ -1,12 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ playMusic()
+comment0.target=Sky()
 comment1.params=
-comment1.target=Sky()
-comment2.params=
-comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ spawnIndestructableWalls()
-comment4.params=
-comment4.target=void\ spawnDestructableWalls()
-numComments=5
+comment1.target=void\ act()
+numComments=2

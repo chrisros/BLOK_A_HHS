@@ -12,12 +12,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class IndestructableWall extends Wall
 {
-    /**
-     * Act - do whatever the IndestructableWall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
+<<<<<<< HEAD
        move(-2);
         /* if(Greenfoot.isKeyDown("w")){
         /*    setLocation(getX(), getY()-8)
@@ -25,6 +22,10 @@ public class IndestructableWall extends Wall
          * setLocation(getX(), getY()+8); 
          *} else if (Greenfoot.isKeyDown("d") { move(2);}   }
          */
+=======
+       move(-speed);
+       
+>>>>>>> 0fc856a00a5e633c05e5373d07cf464f099e477c
     }
 
       

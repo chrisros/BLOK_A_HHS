@@ -8,12 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MovingWall extends Wall
 {
+<<<<<<< HEAD
     final int GO_UP = -2;
     final int GO_DOWN = 2;
     final int GO_DOWN_WAARDE = 100;
     final int GO_UP_WAARDE = 500;
+=======
+    int goUp = -Greenfoot.getRandomNumber(3)-1; // snelheid omhoog
+    int goDown = -goUp;                         // zelfde snelheid als omhoog naar beneden
+    final int goDown_WAARDE = 100;              // Waarde wanneer naar boven
+    final int goUp_WAARDE = 500;                // Waarde wanneer naar beneden
+>>>>>>> 0fc856a00a5e633c05e5373d07cf464f099e477c
     
-    int beweging = GO_UP;
+    int beweging = goUp;
     /**
      * Act - do whatever the MovingWall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,16 +33,18 @@ public class MovingWall extends Wall
     public void beweging()
     
     {
-       if (getY() <= GO_DOWN_WAARDE) {
-           beweging = GO_DOWN; 
+       // Naar beneden 
+       if (getY() <= goDown_WAARDE) {
+           beweging = goDown; 
        }
-       if (getY() == GO_UP_WAARDE ) {
-           beweging = GO_UP; 
+       // Naar boven
+       if (getY() == goUp_WAARDE ) {
+           beweging = goUp; 
        }
        
        setLocation(getX(), getY()+ beweging);
        
-       move(-2); 
+       move(-speed); 
     }
      
        

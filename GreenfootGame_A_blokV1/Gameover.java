@@ -6,14 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Gameover extends Actor
+public class Gameover extends Button
 {
-    /**
-     * Act - do whatever the Gameover wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        Greenfoot.stop();
-    }    
+        public void checkClick()
+        {
+            click=Greenfoot.mouseClicked(this);
+            if(click==true)
+            {
+                Greenfoot.setWorld(new Sky());
+                click = false;
+                World world = getWorld();
+                world.removeObject(this);
+                
+            } 
+        } 
 }

@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sky extends World
 {
+<<<<<<< HEAD
     boolean isPlaying = false;
     private int counterIndestructableWalls;
     private int counterDestructableWalls;
@@ -61,8 +62,17 @@ public class Sky extends World
            
            
         }
+=======
+   public Sky ()
+   {    
+       super(1200, 600, 1, false); 
+        
+        addObject( new Start(), 600, 300);  
+>>>>>>> 0fc856a00a5e633c05e5373d07cf464f099e477c
     }
+   
     
+<<<<<<< HEAD
     private void spawnDestructableWalls()
     
     {
@@ -80,10 +90,11 @@ public class Sky extends World
     
     
     
+=======
+   public void act()
+   {
+       
+   }
+>>>>>>> 0fc856a00a5e633c05e5373d07cf464f099e477c
     
-    /*    public static gameOver() 
-    {
-        
-    }
-    */
 }
