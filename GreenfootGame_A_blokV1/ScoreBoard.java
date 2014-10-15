@@ -15,7 +15,7 @@ public class ScoreBoard extends Actor
     public void act()
     
     {
-        setImage(new GreenfootImage("Score: " + score, 50, Color.BLACK, null));
+        setImage(new GreenfootImage("Score: " + score, 50, Color.WHITE, null));
     }
     
     public void addScore()

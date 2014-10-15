@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*; 
 /**
  * Write a description of class Helicopter here.
  * 
@@ -10,14 +9,15 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    public boolean gameOverBool;                        //true als je tegen een muur aan botst
+    public boolean gameOverBool;                    //true als je tegen een muur aan botst
     private static int gameOverDelay;
     public int rocketsFired;                        //hoeveelheid raketten afgevuurd
-    private static int reloadTime;            //minimum tijd tussen schoten
+    private static int reloadTime;                  //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
    
     //helicopter klaarmaken
-    public Helicopter(){
+    public Helicopter()
+    {
         reloadDelay = reloadTime+1;
         animationCount = 1;
         reloadTime = 30;
@@ -94,8 +94,7 @@ public class Helicopter extends Actor
     }
     
     private void gameOver()
-    {      
-        
+    {        
         if(gameOverBool==true)
         {
             gameOverDelay--;
@@ -107,8 +106,7 @@ public class Helicopter extends Actor
             Greenfoot.stop();
         }        
     }
-    
-    
+     
     public void act() 
     {
         //GreenfootSound.playLoop(playSound("helisound.mp3")); 

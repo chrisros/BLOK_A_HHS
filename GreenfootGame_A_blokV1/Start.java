@@ -6,25 +6,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Start extends Actor
+public class Start extends Button
 {
-    boolean click = false;
-    
-    private void checkClick()
-    {
-        click=Greenfoot.mouseClicked(this);
-        if(click==true)
-        {
-           Greenfoor.setWorld(play.class)
-            World world = getWorld();
-            world.removeObject(this);
-            
-        } 
-        
-    }
-   
-    public void act() 
-    {
-        checkClick();     
-    }    
 }

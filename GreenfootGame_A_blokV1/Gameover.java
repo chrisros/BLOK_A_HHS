@@ -6,12 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameOver extends Actor
+public class GameOver extends Button
 {
-
-    
-    public void act() 
-    {
-        setImage("Gameover.png");
-    }    
+        public void checkClick()
+        {
+            click=Greenfoot.mouseClicked(this);
+            if(click==true)
+            {
+                Greenfoot.setWorld(new Sky());
+                click = false;
+                World world = getWorld();
+                world.removeObject(this);
+                
+            } 
+        } 
 }
