@@ -8,16 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BackgroundScroller extends Actor
 {
-    int i = 0;
+    int moveSmooth = 0;
     private void scroll()
     {
-        if (i < 16)
+        if (moveSmooth < 10)
         {
-            i++;
+            moveSmooth++;
         } else
         {
            move(-1);
-           i = 0;
+           moveSmooth = 0;
         }
      
     }
