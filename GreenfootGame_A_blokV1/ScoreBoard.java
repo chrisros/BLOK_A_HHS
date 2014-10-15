@@ -10,24 +10,17 @@ import java.awt.Font;
  */
 public class ScoreBoard extends Actor
 {
-    public ScoreBoard() {
-        GreenfootImage scoreImage = new GreenfootImage(100,50);
-        setImage(scoreImage);             
-        
+    int score = 0;
+    
+    public void act()
+    
+    {
+        setImage(new GreenfootImage("Score: " + score, 50, Color.BLACK, null));
     }
     
-    public void setScore(int score) {
-        GreenfootImage scoreImage = getImage();
-        scoreImage.clear();
-        
-        Color c = new Color(0, 0, 0, 127);
-        Font f = new Font("Comic Sans MS", Font.PLAIN, 32);
-        scoreImage.setFont(f);
-        
-        scoreImage.setColor(c);
-        scoreImage.fill();
-        scoreImage.setColor(Color.white);
-        scoreImage.drawString("" + score, 100, 100);
-        setImage(scoreImage);
-    }  
+    public void addScore()
+    
+    {
+        score++;
+    }
 }
