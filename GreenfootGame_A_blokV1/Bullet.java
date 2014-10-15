@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-
+    int kapot[] = new int[1000];
+    int aantalKapot = 0;
     //controle of muur geraakt word 
     private void wallCollide(){
         if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
@@ -16,6 +17,8 @@ public class Bullet extends Actor
         } else if (isTouching(DestructableWall.class)){
            removeTouching(DestructableWall.class);
            explode();
+           kapot[aantalKapot] = 1;
+           aantalKapot++;
         } else if(isAtEdge()){
             getWorld().removeObject(this);
         }

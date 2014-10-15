@@ -56,7 +56,7 @@ public class Helicopter extends Actor
                 World world = getWorld();
                 world.addObject(new Explosion(), getX(), getY());
                 Greenfoot.playSound("heliExplosion.wav");
-                world.addObject( new GameOver(), 600, 300 );
+                world.addObject( new Gameover(), 600, 300 );
                 gameOverBool = true; 
             }
         }    
