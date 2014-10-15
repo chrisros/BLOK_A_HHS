@@ -14,8 +14,9 @@ public class Sky extends World
     int HeliCounter;
     int SPACE_BETWEEN_MUREN = 200;
     int FIRST_WALL = 737;
-    int score = 0;
-    ScoreBoard scoreBoard = null;
+    
+    public int timerSpeed = 0;
+    ScoreBoard scoreBoard = new ScoreBoard();
        
     private void playMusic()
     {
@@ -33,10 +34,6 @@ public class Sky extends World
         addObject( new Start(), 600, 300);
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 10, 300 );
-        
-        scoreBoard = new ScoreBoard();
-        scoreBoard.setScore(0);
-        
         addObject(scoreBoard, 100, 100);
         
         setPaintOrder
@@ -57,8 +54,9 @@ public class Sky extends World
    
     public void act()
     {
-
+            timerSpeed++;
             WallCounter++;
+            addSpeed();
             playMusic();                
             
             if (WallCounter % 250 == 0 && WallCounter % 1000 != 0 )
@@ -78,14 +76,27 @@ public class Sky extends World
             {
                 if (HeliCounter % 250 == 0)
                 { 
-                    score++;
-                    scoreBoard.setScore(score);
+                    scoreBoard.addScore();
                 }
                 HeliCounter++;
-                
-            
-        }     
+            }     
     }
+    
+    public ScoreBoard getCounter()
+    
+    {
+        return scoreBoard;        
+    }
+    
+    public void addSpeed()
+    
+    {
+        if (timerSpeed % 2500 == 0)
+        {
+            Wall.speed++;
+        }
+    }
+   
     
     private void spawnIndestructableWalls()
     {

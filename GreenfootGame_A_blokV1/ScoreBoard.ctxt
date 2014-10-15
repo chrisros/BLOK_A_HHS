@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=ScoreBoard()
-comment1.params=score
-comment1.target=void\ setScore(int)
+comment0.target=void\ act()
+comment1.params=
+comment1.target=void\ addScore()
 numComments=2

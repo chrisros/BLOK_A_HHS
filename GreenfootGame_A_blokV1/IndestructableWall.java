@@ -18,7 +18,7 @@ public class IndestructableWall extends Wall
      */
     public void act() 
     {
-       move(-2);
+       move(-speed);
        
     }
 }
