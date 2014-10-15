@@ -56,7 +56,7 @@ public class Helicopter extends Actor
                 World world = getWorld();
                 world.addObject(new Explosion(), getX(), getY());
                 Greenfoot.playSound("heliExplosion.wav");
-                world.addObject( new GameOver(), 600, 200 );
+                world.addObject( new GameOver(), 600, 300 );
                 gameOverBool = true; 
             }
         }    
@@ -103,7 +103,7 @@ public class Helicopter extends Actor
         {       
             World world = getWorld();
             world.removeObject(this); // remove helicopter from world
-            Greenfoot.stop();
+            Greenfoot.delay(5000000);
         }        
     }
      

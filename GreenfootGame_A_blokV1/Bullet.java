@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
 
-    //exploderen en verdrwijnenn als een muur geraakt word
+    //controle of muur geraakt word 
     private void wallCollide(){
         if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
             explode();
@@ -21,6 +21,7 @@ public class Bullet extends Actor
         }
     }
    
+    //explodeer animatie aanroepen
     private void explode(){
         World world = getWorld();
         world.addObject(new Explosion(), getX(), getY());
