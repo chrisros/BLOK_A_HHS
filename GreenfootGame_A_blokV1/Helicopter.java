@@ -10,85 +10,113 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    public int gameOverDelay = 0;
+    public boolean gameOverBool;                        //true als je tegen een muur aan botst
+    private static int gameOverDelay;
+    public int rocketsFired;                        //hoeveelheid raketten afgevuurd
     private static int reloadTime;            //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
+   
     //helicopter klaarmaken
     public Helicopter(){
         reloadDelay = reloadTime+1;
         animationCount = 1;
         reloadTime = 30;
+        gameOverDelay = 20;
+        rocketsFired = 0;
+        gameOverBool = false;
     }
     
     //animeren van helicopter
-    private void heliAnimationCount(){
-        if (animationCount<3){
+    private void heliAnimationCount()
+    {
+        if(gameOverBool==false)
+        {
+            if (animationCount<3)
+            {
             animationCount++;
-            
-        } else {
+            } else {
             animationCount=0;    
-        }  
-        helicopterImage="helicopter"+animationCount+".png";
-        setImage(helicopterImage);
-   }
+            }  
+            helicopterImage="helicopter"+animationCount+".png";
+            setImage(helicopterImage);
+        }
+    }
   
     
     //Controle of er niet tegen een muur aan word gebotst
     private void checkCollision()
     {
-        Actor a = getOneIntersectingObject(Wall.class);
-        if (a != null||isAtEdge() )
+        if (gameOverBool==false)
+        {   
+            Actor a = getOneIntersectingObject(Wall.class);
+            if (a != null||isAtEdge())
+            {
+                setImage("gone.png");//laat de helicopter verdwijnen
+                World world = getWorld();
+                world.addObject(new Explosion(), getX(), getY());
+                Greenfoot.playSound("heliExplosion.wav");
+                world.addObject( new GameOver(), 600, 200 );
+                gameOverBool = true; 
+            }
+        }    
+    }
+    private void test()
+    {
+        if(Greenfoot.isKeyDown("k"))
         {
-            World world = getWorld();
-            world.addObject(new Explosion(), getX(), getY());
-            world.removeObject(this); // remove helicopter from world
-            gameOver(); //call gameover 
+          gameOverBool = true;  
         }
     }
     
     //op en neer bewegen
-    private void movement(){
-             if(Greenfoot.isKeyDown("up")){
-        setLocation(getX(), getY()-8);  
+    private void movement()
+    {
+        if(Greenfoot.isKeyDown("up"))
+        {
+        setLocation(getX(), getY()-6);  
         } else if (Greenfoot.isKeyDown("down")){
-        setLocation(getX(), getY()+8);   }
+        setLocation(getX(), getY()+6);   
+        }
     }
     
     //schieten van kogel
-    private void shoot(){
-        if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime){
+    private void shoot()
+    {
+        if(Greenfoot.isKeyDown("space")&&reloadDelay>reloadTime)
+        {
             World world = getWorld();
             world.addObject(new Bullet(), (getX()+25), (getY()+15));
             reloadDelay = 0;
             Greenfoot.playSound("launch.wav");
+            rocketsFired++;
         }
     }
     
-    private void gameOver(){       
-        Greenfoot.playSound("heliExplosion.wav");
+    private void gameOver()
+    {      
         
-        if(gameOverDelay<30){
-            gameOverDelay++;
-
-        }        
-
-        }
-    private void stopCheck() {
-                if (gameOverDelay>20)
+        if(gameOverBool==true)
         {
-            Greenfoot.stop();
+            gameOverDelay--;
         }
+        if (gameOverDelay<0 && gameOverBool==true)
+        {       
+            World world = getWorld();
+            world.removeObject(this); // remove helicopter from world
+            Greenfoot.stop();
+        }        
     }
     
     
     public void act() 
     {
+        gameOver();
         movement();
         checkCollision();
         shoot();
         reloadDelay++;
         heliAnimationCount();
-        stopCheck();
+        test();
     }
     
     

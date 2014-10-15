@@ -11,7 +11,7 @@ public class BackgroundScroller extends Actor
     int i = 0;
     private void scroll()
     {
-        if (i < 16)
+        if (i < 10)
         {
             i++;
         } else
