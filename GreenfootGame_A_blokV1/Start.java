@@ -15,14 +15,16 @@ public class Start extends Actor
         click=Greenfoot.mouseClicked(this);
         if(click==true)
         {
+           Greenfoor.setWorld(play.class)
             World world = getWorld();
             world.removeObject(this);
-        }
+            
+        } 
         
     }
    
     public void act() 
     {
-        checkClick();
+        checkClick();     
     }    
 }
