@@ -10,7 +10,7 @@ public class Explosion extends Actor
 {
     private int animationCount=1;
     private String explosionImage;
-    
+    private int speed = 5;
    //animeren van explosie
     private void explosionAnimation()
     {
@@ -27,6 +27,6 @@ public class Explosion extends Actor
     public void act() 
     {
        explosionAnimation(); 
-       move(5);
+       move(speed);
     }    
 }

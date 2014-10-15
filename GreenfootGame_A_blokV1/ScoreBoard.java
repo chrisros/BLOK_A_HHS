@@ -10,7 +10,7 @@ import java.awt.Font;
  */
 public class ScoreBoard extends Actor
 {
-    int score = 0;
+    private int score = 0;
     
     public void act()
     

@@ -91,6 +91,7 @@ public class Helicopter extends Actor
             Greenfoot.playSound("launch.wav");
             rocketsFired++;
         }
+        reloadDelay++;
     }
     
     private void gameOver()
@@ -114,9 +115,8 @@ public class Helicopter extends Actor
         movement();
         checkCollision();
         shoot();
-        reloadDelay++;
         heliAnimationCount();
-        test();
+       
     }
     
     

@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Wall extends Actor
 {
     public static int speed = 2;
-    int timer = 0;
+    private int timer = 0;
+        
     public void act() 
     {
         timer++;
