@@ -12,14 +12,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class IndestructableWall extends Wall
 {
-    /**
-     * Act - do whatever the IndestructableWall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+   public void act() 
+    
     {
-       move(-2);
-       
+           
+      move(-speed);
+    
     }
+    
 }
     

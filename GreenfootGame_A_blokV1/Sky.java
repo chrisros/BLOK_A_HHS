@@ -13,8 +13,11 @@ public class Sky extends World
     int HeliCounter;
     int SPACE_BETWEEN_MUREN = 200;
     int FIRST_WALL = 737;
-    int score = 0;
-    ScoreBoard scoreBoard = null;
+    
+    public int timerSpeed = 0;
+          
+    
+    ScoreBoard scoreBoard = new ScoreBoard();
        
     private void playMusic()
     {
@@ -31,19 +34,31 @@ public class Sky extends World
       
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 1200, 300 );
-        
-        scoreBoard = new ScoreBoard();
-        scoreBoard.setScore(0);
-        
-        addObject(scoreBoard, 100, 100);
-        
+        addObject( scoreBoard, 100, 100);
+             
         setPaintOrder(ScoreBoard.class, Explosion.class,IndestructableWall.class, DestructableWall.class,Helicopter.class,Bullet.class,MovingWall.class,BackgroundScroller.class);
                
     }
+    
+    public ScoreBoard getCounter()
+    
+    {
+        return scoreBoard;
+        
+    }
+   public void addSpeed()
+   {
+       if (timerSpeed % 750 == 0)
+       {
+           Wall.speed++;
+       }
+   }
    
-    public void act()
+   public void act()
     {
         WallCounter++;
+        timerSpeed++;
+        addSpeed();
         playMusic();
         
         //System.out.println(counter);
@@ -65,8 +80,8 @@ public class Sky extends World
         {
             if (HeliCounter % 250 == 0)
             { 
-                score++;
-                scoreBoard.setScore(score);
+            scoreBoard.addScore();
+               
             }
             HeliCounter++;
             
