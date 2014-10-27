@@ -40,9 +40,9 @@ public class Gameworld extends World
         
         setPaintOrder
         (
+        ScoreBoard.class,
         Gameover.class,
-        Start.class,
-        ScoreBoard.class, 
+        Start.class,         
         Explosion.class,
         IndestructableWall.class, 
         DestructableWall.class,
@@ -56,41 +56,47 @@ public class Gameworld extends World
    
     public void act()
     {
-        timerSpeed++; // teller voor wanneer snelheid verhoge
-        WallCounter++; // teller voor wanneer muren neerzetten
-        addSpeed(); // aanroepen addSpeed
-        playMusic();                
-            
-        // Roep IndestructableWall aan
-        if (WallCounter % AFSTAND_INDESTRUCTABLEWALL == 0 && WallCounter % NIEUWE_MOVINGWALL != 0 )
-        {
-            spawnIndestructableWalls();
-        } 
-        // Roep MovingWall aan
-        if (WallCounter % NIEUWE_MOVINGWALL == 0) 
-        {     
-             addObject( new MovingWall(), 1200, 600);
-        }
-        // Roep DestructableWall aan
-        if (WallCounter % AFSTAND_DESTRUCTABLEWALL == 0 && WallCounter % NIEUWE_MOVINGWALL != 0)
-        {
-                spawnDestructableWalls();
-        }
-        // Score updaten    
-        if (WallCounter >= FIRST_WALL)
-        {
-            if (HeliCounter % AFSTAND_INDESTRUCTABLEWALL == 0)
+ 
+            timerSpeed++; // teller voor wanneer snelheid verhoge
+            WallCounter++; // teller voor wanneer muren neerzetten
+            addSpeed(); // aanroepen addSpeed
+            playMusic();                
+                
+           
+            if (Helicopter.gameOverCheck()==false)
             {
-                scoreBoard.addScore();
+            // Roep IndestructableWall aan
+            if (WallCounter % AFSTAND_INDESTRUCTABLEWALL == 0 && WallCounter % NIEUWE_MOVINGWALL != 0 )
+            {
+                spawnIndestructableWalls();
+            } 
+            // Roep MovingWall aan
+            if (WallCounter % NIEUWE_MOVINGWALL == 0) 
+            {     
+                 addObject( new MovingWall(), 1200, 600);
             }
-            HeliCounter++;
-        }     
-    }
+            // Roep DestructableWall aan
+            if (WallCounter % AFSTAND_DESTRUCTABLEWALL == 0 && WallCounter % NIEUWE_MOVINGWALL != 0)
+            {
+                    spawnDestructableWalls();
+            }
+            // Score updaten    
+            if (WallCounter >= FIRST_WALL)
+            {
+                if (HeliCounter % AFSTAND_INDESTRUCTABLEWALL == 0)
+                {
+                    scoreBoard.addScore();
+                }
+                HeliCounter++;
+            }     
+        }
+        }
+    
     
     public ScoreBoard getCounter()    
     {
         return scoreBoard;        
-    }
+    } 
     
     public void addSpeed()
     {

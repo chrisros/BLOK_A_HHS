@@ -2,11 +2,11 @@
 comment0.params=
 comment0.target=Helicopter()
 comment1.params=
-comment1.target=void\ heliAnimationCount()
+comment1.target=boolean\ gameOverCheck()
 comment2.params=
-comment2.target=void\ checkCollision()
+comment2.target=void\ heliAnimationCount()
 comment3.params=
-comment3.target=void\ test()
+comment3.target=void\ checkCollision()
 comment4.params=
 comment4.target=void\ movement()
 comment5.params=

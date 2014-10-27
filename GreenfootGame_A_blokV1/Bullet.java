@@ -14,13 +14,16 @@ public class Bullet extends Actor
     private void wallCollide(){
         if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
             explode();
+            Helicopter.rocketInGame = false;
         } else if (isTouching(DestructableWall.class)){
            removeTouching(DestructableWall.class);
            explode();
            kapot[aantalKapot] = 1;
            aantalKapot++;
+           Helicopter.rocketInGame = false;
         } else if(isAtEdge()){
             getWorld().removeObject(this);
+            Helicopter.rocketInGame = false;
         }
     }
    

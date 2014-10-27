@@ -21,6 +21,9 @@ public class ScoreBoard extends Actor
     public void addScore()
     
     {
+        //if(gameOverBool == false)
+        //{
         score++;
+        //}
     }
 }

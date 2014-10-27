@@ -9,12 +9,12 @@ public class Helicopter extends Actor
 {
     private int reloadDelay;                        //tijd sinds laatse schot
     private int animationCount;                     //loop door de animatie
-    public boolean gameOverBool;                    //true als je tegen een muur aan botst
+    public static boolean gameOverBool;                    //true als je tegen een muur aan botst
     private static int gameOverDelay;
-    public int rocketsFired;                        //hoeveelheid raketten afgevuurd
+    public static int rocketsFired;                        //hoeveelheid raketten afgevuurd
     private static int reloadTime;                  //minimum tijd tussen schoten
     private String helicopterImage = "helicopter0.png";                
-   
+    public static boolean rocketInGame;
     //helicopter klaarmaken
     public Helicopter()
     {
@@ -24,7 +24,15 @@ public class Helicopter extends Actor
         gameOverDelay = 20;
         rocketsFired = 0;
         gameOverBool = false;
+        setRotation(5);
+        rocketInGame = false;
     }
+    
+    public static boolean gameOverCheck()
+    {
+        return gameOverBool;
+    }
+
     
     //animeren van helicopter
     private void heliAnimationCount()
@@ -61,22 +69,19 @@ public class Helicopter extends Actor
             }
         }    
     }
-    private void test()
-    {
-        if(Greenfoot.isKeyDown("k"))
-        {
-          gameOverBool = true;  
-        }
-    }
     
     //op en neer bewegen
     private void movement()
     {
         if(Greenfoot.isKeyDown("up"))
         {
-        setLocation(getX(), getY()-6);  
+        setLocation(getX(), getY()-6);
+        setRotation(2);
         } else if (Greenfoot.isKeyDown("down")){
-        setLocation(getX(), getY()+6);   
+        setLocation(getX(), getY()+6); 
+        setRotation(8);
+        } else{
+            setRotation(5);
         }
     }
     
@@ -87,6 +92,7 @@ public class Helicopter extends Actor
         {
             World world = getWorld();
             world.addObject(new Bullet(), (getX()+25), (getY()+15));
+            rocketInGame = true;
             reloadDelay = 0;
             Greenfoot.playSound("launch.wav");
             rocketsFired++;
@@ -104,7 +110,7 @@ public class Helicopter extends Actor
         {       
             World world = getWorld();
             world.removeObject(this); // remove helicopter from world
-            Greenfoot.delay(5000000);
+            //Greenfoot.delay(5000000);
         }        
     }
      

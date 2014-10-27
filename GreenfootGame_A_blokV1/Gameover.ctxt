@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ checkClick()
-numComments=1
+comment0.target=void\ check()
+comment1.params=
+comment1.target=void\ printRocketsFired()
+comment2.params=
+comment2.target=void\ act()
+numComments=3

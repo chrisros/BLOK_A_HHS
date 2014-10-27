@@ -8,16 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gameover extends Button
 {
-        public void checkClick()
+    public void check()
+    {
+        
+        if(click==true)
         {
-            click=Greenfoot.mouseClicked(this);
-            if(click==true)
-            {
-                Greenfoot.setWorld(new Sky());
-                click = false;
-                World world = getWorld();
-                world.removeObject(this);
-                
-            } 
+            Greenfoot.setWorld(new Sky());
+            click = false;
+            //World world = getWorld();
+            //world.removeObject(this);
+            
         } 
+    } 
+
+    public void printRocketsFired()
+    {
+        
+    }
+    
+    public void act()
+    {
+        checkClick();
+        check();
+        printRocketsFired();
+    }
 }
