@@ -12,11 +12,17 @@ public class Bullet extends Actor
     int aantalKapot = 0;
     //controle of muur geraakt word 
     private void wallCollide(){
-        if(isTouching(MovingWall.class)||isTouching(IndestructableWall.class)){
+        if(isTouching(IndestructableWall.class)){
             explode();
             Helicopter.rocketInGame = false;
         } else if (isTouching(DestructableWall.class)){
            removeTouching(DestructableWall.class);
+           explode();
+           kapot[aantalKapot] = 1;
+           aantalKapot++;
+           Helicopter.rocketInGame = false;
+        }else if(isTouching(MovingWall.class)){
+           removeTouching(MovingWall.class);
            explode();
            kapot[aantalKapot] = 1;
            aantalKapot++;

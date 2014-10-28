@@ -10,20 +10,28 @@ import java.awt.Font;
  */
 public class ScoreBoard extends Actor
 {
-    private int score = 0;
+    public static int score = 0;
     
     public void act()
     
     {
         setImage(new GreenfootImage("Score: " + score, 50, Color.WHITE, null));
+        hide();
+    }
+    
+    private void hide()
+    {
+        if(Helicopter.gameOverBool)
+        {
+            //getWorld().removeObject(this);
+
+            setImage(new GreenfootImage("Final score: " + ScoreBoard.score + "  Rockets Fired " + Helicopter.rocketsFired, 50,  Color.WHITE, null));
+        }
     }
     
     public void addScore()
     
     {
-        //if(gameOverBool == false)
-        //{
         score++;
-        //}
     }
 }

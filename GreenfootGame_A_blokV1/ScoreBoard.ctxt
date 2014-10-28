@@ -2,5 +2,7 @@
 comment0.params=
 comment0.target=void\ act()
 comment1.params=
-comment1.target=void\ addScore()
-numComments=2
+comment1.target=void\ hide()
+comment2.params=
+comment2.target=void\ addScore()
+numComments=3

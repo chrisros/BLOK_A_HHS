@@ -73,18 +73,20 @@ public class Helicopter extends Actor
     //op en neer bewegen
     private void movement()
     {
-        if(Greenfoot.isKeyDown("up"))
+        if(gameOverBool==false)
         {
-        setLocation(getX(), getY()-6);
-        setRotation(2);
-        } else if (Greenfoot.isKeyDown("down")){
-        setLocation(getX(), getY()+6); 
-        setRotation(8);
-        } else{
-            setRotation(5);
+            if(Greenfoot.isKeyDown("up"))
+            {
+            setLocation(getX(), getY()-6);
+            setRotation(2);
+            } else if (Greenfoot.isKeyDown("down")){
+            setLocation(getX(), getY()+6); 
+            setRotation(8);
+            } else{
+                setRotation(5);
+            }   
         }
     }
-    
     //schieten van kogel
     private void shoot()
     {

@@ -12,13 +12,13 @@ public class Gameworld extends World
     boolean start = false;
     int WallCounter;                                // Teller voor de muren
     int HeliCounter;                                // Teller voor punten helicopter
-    public int timerSpeed = 0;                      // Teller voor snelheid
-    final int SPACE_BETWEEN_MUREN = 200;            // Afstand tussen Up en Down muur
-    final int FIRST_WALL = 737;                     // Afstand na eerste muur
-    final int AFSTAND_INDESTRUCTABLEWALL = 250;     // Afstand tussen IndestructableWalls
-    final int AFSTAND_DESTRUCTABLEWALL = 750;       // Afstand tussen DestructableWalls
-    final int NIEUWE_MOVINGWALL = 1000;             // Afstand tussen MovingWalls
-    final int VERHOOG_SNELHEID = 2500;              // Afstand na aantal px snelheid +1  
+    public int timerSpeed;                          // Teller voor snelheid
+    final int SPACE_BETWEEN_MUREN;                  // Afstand tussen Up en Down muur
+    final int FIRST_WALL;                           // Afstand na eerste muur
+    final int AFSTAND_INDESTRUCTABLEWALL;           // Afstand tussen IndestructableWalls
+    final int AFSTAND_DESTRUCTABLEWALL;             // Afstand tussen DestructableWalls
+    final int NIEUWE_MOVINGWALL;                    // Afstand tussen MovingWalls
+    final int VERHOOG_SNELHEID;                     // Afstand na aantal px snelheid +1  
         
     ScoreBoard scoreBoard = new ScoreBoard();       // Nieuw ScoreBoard toevoegen
        
@@ -36,7 +36,16 @@ public class Gameworld extends World
        super(1200, 600, 1, false);
         addObject( new Helicopter(), 400, 300 );
         addObject( new BackgroundScroller(), 4678, 300 );
-        addObject(scoreBoard, 100, 60);
+        addObject(scoreBoard, 600, 60);
+        
+        timerSpeed = 0;                     
+        SPACE_BETWEEN_MUREN = 150;            
+        FIRST_WALL = 737;                     
+        AFSTAND_INDESTRUCTABLEWALL = 250;     
+        AFSTAND_DESTRUCTABLEWALL = 750;       
+        NIEUWE_MOVINGWALL = 1000;           
+        VERHOOG_SNELHEID = 2200; 
+        
         
         setPaintOrder
         (
