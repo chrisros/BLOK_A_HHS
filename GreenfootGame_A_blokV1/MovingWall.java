@@ -22,7 +22,7 @@ public class MovingWall extends Wall
        heliAnimationCount();
     }
     
-        //animeren van helicopter
+        //animeren van muur
     private void heliAnimationCount()
     {
         if(Helicopter.gameOverBool==false)
@@ -38,7 +38,7 @@ public class MovingWall extends Wall
         }
     }
   
-    
+        //beweging van de muur
     public void beweging()
     
     {
@@ -49,10 +49,8 @@ public class MovingWall extends Wall
        // Naar boven
        if (getY() == goUp_WAARDE ) {
            beweging = goUp; 
-       }
-       
-       setLocation(getX(), getY()+ beweging);
-       
+       }       
+       setLocation(getX(), getY()+ beweging);       
        move(-speed); 
     }
      

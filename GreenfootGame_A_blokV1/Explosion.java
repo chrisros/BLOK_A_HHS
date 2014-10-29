@@ -11,7 +11,8 @@ public class Explosion extends Actor
     private int animationCount=1;
     private String explosionImage;
     private int speed = 5;
-   //animeren van explosie
+   
+    //animeren van explosie
     private void explosionAnimation()
     {
         if (animationCount<7){

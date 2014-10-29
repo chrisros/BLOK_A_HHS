@@ -14,9 +14,6 @@ public class UpIndestructableWall extends IndestructableWall
      */
     public void act() 
     {
-
-        // Add your action code here.
-
         move(-speed);
     }    
 }

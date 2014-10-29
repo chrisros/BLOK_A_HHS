@@ -21,15 +21,10 @@ public class Gameover extends Button
         } 
     } 
 
-    public void printRocketsFired()
-    {
-        
-    }
-    
+
     public void act()
     {
         checkClick();
         check();
-        printRocketsFired();
     }
 }

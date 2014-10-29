@@ -7,14 +7,15 @@ import greenfoot.*;
  */
 public class Helicopter extends Actor
 {
-    private int reloadDelay;                        //tijd sinds laatse schot
-    private int animationCount;                     //loop door de animatie
-    public static boolean gameOverBool;                    //true als je tegen een muur aan botst
-    private static int gameOverDelay;
-    public static int rocketsFired;                        //hoeveelheid raketten afgevuurd
-    private static int reloadTime;                  //minimum tijd tussen schoten
-    private String helicopterImage = "helicopter0.png";                
-    public static boolean rocketInGame;
+    private int reloadDelay;                            //tijd sinds laatse schot
+    private int animationCount;                         //loop door de animatie
+    public static boolean gameOverBool;                 //true als je tegen een muur aan botst
+    private static int gameOverDelay;                   // hoeveelheid vertraging voordat spel over is 
+    public static int rocketsFired;                     //hoeveelheid raketten afgevuurd
+    private static int reloadTime;                      //minimum tijd tussen schoten
+    private String helicopterImage = "helicopter0.png"; //huidige afbeelding voor helicopter               
+    public static boolean rocketInGame;                 //houdt bij over een raket in het spel zit
+    
     //helicopter klaarmaken
     public Helicopter()
     {
@@ -28,6 +29,7 @@ public class Helicopter extends Actor
         rocketInGame = false;
     }
     
+    //controleert of spel nog speelbaar is
     public static boolean gameOverCheck()
     {
         return gameOverBool;
@@ -60,7 +62,7 @@ public class Helicopter extends Actor
             if (a != null||isAtEdge())
             {
                 setImage("gone.png");//laat de helicopter verdwijnen
-                //greenfoot.GreenfootSound.stop("helisound.wav");
+                Wall.speed = 2;              
                 World world = getWorld();
                 world.addObject(new Explosion(), getX(), getY());
                 Greenfoot.playSound("heliExplosion.wav");
@@ -87,6 +89,7 @@ public class Helicopter extends Actor
             }   
         }
     }
+   
     //schieten van kogel
     private void shoot()
     {
@@ -102,6 +105,7 @@ public class Helicopter extends Actor
         reloadDelay++;
     }
     
+    // verwijderen van helicopter na doodgaan
     private void gameOver()
     {        
         if(gameOverBool==true)
@@ -111,22 +115,18 @@ public class Helicopter extends Actor
         if (gameOverDelay<0 && gameOverBool==true)
         {       
             World world = getWorld();
-            world.removeObject(this); // remove helicopter from world
-            //Greenfoot.delay(5000000);
+            world.removeObject(this); 
         }        
     }
      
     public void act() 
-    {
-        //GreenfootSound.playLoop(playSound("helisound.mp3")); 
+    { 
         gameOver();
         movement();
         checkCollision();
         shoot();
-        heliAnimationCount();
-       
+        heliAnimationCount();       
     }
+}    
     
-    
-    }    
 

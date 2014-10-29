@@ -8,11 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DestructableWall extends Wall
 {
-    //super(50, 400, 2); 
+
     public void act() 
     {
-        // Add your action code here.
-        
         move(-speed);
     }    
 }
