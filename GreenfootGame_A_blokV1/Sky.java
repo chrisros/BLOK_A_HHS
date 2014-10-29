@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Sky here.
+ * Hierin start je het spel, wanneer run is geklikt, opent zich de Gameworld
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters) 
  * @version (a version number or a date)
  */
 public class Sky extends World

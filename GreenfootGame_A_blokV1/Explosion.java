@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Explosion here.
+ * Hierin wordt de Explosion attributen meegegeven
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters)
  * @version (a version number or a date)
  */
 public class Explosion extends Actor

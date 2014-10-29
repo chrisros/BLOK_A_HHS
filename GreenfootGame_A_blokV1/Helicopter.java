@@ -2,7 +2,7 @@ import greenfoot.*;
 /**
  * Write a description of class Helicopter here.
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters) 
  * @version (a version number or a date)
  */
 public class Helicopter extends Actor

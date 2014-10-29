@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DestructableWall here.
+ * De snelheid van de DestructableWall wordt hierin aagegeven
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters) 
  * @version (a version number or a date)
  */
 public class DestructableWall extends Wall

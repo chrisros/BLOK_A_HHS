@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wall here.
+ * Hierin word de speed van de muren aangemaakt en meegegeven.
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters) 
  * @version (a version number or a date)
  */
 public class Wall extends Actor

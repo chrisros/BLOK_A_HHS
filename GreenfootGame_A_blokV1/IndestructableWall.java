@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class IndestructableWall here.
+ * De snelheid van de IndestructableWall wordt hierin meegegeven.
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters)
  * @version (a version number or a date)
  */
 

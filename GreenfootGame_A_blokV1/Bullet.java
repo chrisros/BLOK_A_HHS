@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bullet here.
+ * Bullet attributen worden hier aangemaakt en meegeven
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters)
  * @version (a version number or a date)
  */
 public class Bullet extends Actor

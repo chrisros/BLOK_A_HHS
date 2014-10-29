@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MovingWall here.
+ * Hierin worden de bewegingen van de MovingWall (plaatje is een helicopter) aangemaakt en meegeven
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters)
  * @version (a version number or a date)
  */
 public class MovingWall extends Wall

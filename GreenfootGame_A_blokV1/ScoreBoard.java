@@ -3,9 +3,9 @@ import java.awt.Color;
 import java.awt.Font;
 
 /**
- * Write a description of class ScoreBoard here.
+ * Afbeelding word hier aangemaakt, en de score wordt opgeteld. 
  * 
- * @author (your name) 
+ * @author (Chris Ros & Aaik Oosters) 
  * @version (a version number or a date)
  */
 public class ScoreBoard extends Actor

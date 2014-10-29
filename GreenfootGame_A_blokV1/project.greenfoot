@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Oct 28 10:49:18 CET 2014
+#Wed Oct 29 10:37:16 CET 2014
 target16.name=UpIndestructableWall
 dependency35.to=Bullet
 class.Sky.superclass=greenfoot.World

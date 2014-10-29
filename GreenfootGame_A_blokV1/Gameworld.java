@@ -1,7 +1,7 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Gameworld here.
+ * Dit is de spelwereld waar het spel gespeeld word.
  * 
  * @author (Chris Ros & Aaik Oosters) 
  * @version (1.4.1)
@@ -61,7 +61,7 @@ public class Gameworld extends World
         BackgroundScroller.class
         );
                
-    }
+    } // public Gameworld()
    
     public void act()
     {
@@ -72,7 +72,7 @@ public class Gameworld extends World
             playMusic();                
                 
            
-            if (Helicopter.gameOverCheck()==false)
+            if(Helicopter.gameOverCheck()==false)
             {
             // Roep IndestructableWall aan
             if (WallCounter % AFSTAND_INDESTRUCTABLEWALL == 0 && WallCounter % NIEUWE_MOVINGWALL != 0 )
@@ -95,17 +95,17 @@ public class Gameworld extends World
                 if (HeliCounter % AFSTAND_INDESTRUCTABLEWALL == 0)
                 {
                     scoreBoard.addScore();
-                }
+                } // if (HeliCounter % AFSTAND_INDESTRUCTABLEWALL == 0)
                 HeliCounter++;
-            }     
-        }
-        }
+            } // if (WallCounter >= FIRST_WALL)     
+        } //  if(Helicopter.gameOverCheck()==false)
+    } // public void act()
     
     
     public ScoreBoard getCounter()    
     {
         return scoreBoard;        
-    } 
+    } // public ScoreBoard getCounter()
     
     public void addSpeed()
     {
@@ -113,7 +113,7 @@ public class Gameworld extends World
         {
             Wall.speed++;
         }
-    }
+    } // public void addSpeed()
    
     
     private void spawnIndestructableWalls()
@@ -134,7 +134,7 @@ public class Gameworld extends World
         // voeg object toe aan wereld
         addObject(upWall, getWidth(), downWall.getY() - downImage.getHeight() - SPACE_BETWEEN_MUREN );
            
-    }
+    } // private void spawnIndestructableWalls()
     
     private void spawnDestructableWalls()  
     {
@@ -144,5 +144,5 @@ public class Gameworld extends World
         GreenfootImage downImage = destructableWall.getImage();
         // Voeg object toe aan wereld           
         addObject(destructableWall, getWidth(), getHeight()/2);
-    }    
+    } // private void spawnDestructableWalls()      
 }
