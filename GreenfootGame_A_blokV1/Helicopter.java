@@ -16,7 +16,6 @@ public class Helicopter extends Actor
     private String helicopterImage = "helicopter0.png";                
     public static boolean rocketInGame;
     //helicopter klaarmaken
-    
     public Helicopter()
     {
         reloadDelay = reloadTime+1;
@@ -27,7 +26,6 @@ public class Helicopter extends Actor
         gameOverBool = false;
         setRotation(5);
         rocketInGame = false;
-        Wall.speed = 4;
     }
     
     public static boolean gameOverCheck()
@@ -80,10 +78,10 @@ public class Helicopter extends Actor
             if(Greenfoot.isKeyDown("up"))
             {
             setLocation(getX(), getY()-6);
-            setRotation(0);
+            setRotation(2);
             } else if (Greenfoot.isKeyDown("down")){
             setLocation(getX(), getY()+6); 
-            setRotation(10);
+            setRotation(8);
             } else{
                 setRotation(5);
             }   
